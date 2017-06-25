@@ -1,0 +1,10 @@
+{% load i18n %}
+<p>{% trans "Add new expression" %}</p>
+{% csrf_token %}
+
+{% for field in expression_form %}
+    {{ field.label }}
+    {{ field }}
+
+{% endfor %}
+{{ expression_form }}

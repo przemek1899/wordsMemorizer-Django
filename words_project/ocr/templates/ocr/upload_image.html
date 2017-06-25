@@ -1,0 +1,27 @@
+{% extends 'words/base/base.html' %}
+{% load i18n %}
+
+{#{% block navbar %}{% endblock %}#}
+{% block content %}
+    <a href="groups_view">{% trans "Go to groups." %}</a>
+    <p>{% trans "upload image to scan the text" %}</p>
+    <form method="post" action="/ocr/" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {% for field in image_form %}
+            <tr>
+                <td>{{ field.label }}</td>
+                <td>{{ field }}</td>
+            </tr>
+
+            {% endfor %}
+        </table>
+        <button type="submit">{% trans "Process" %}</button>
+    </form>
+
+{% if image_scanned_content %}
+    <div>
+        {{ image_scanned_content }}
+    </div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,25 @@
+@import "_color_constants.scss";
+
+.top-nav-bar {
+  background: $top-nav-bg-color-1;
+  height: 45px;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  color: #ffffff;
+}
+
+.top-logo {
+  color: white;
+  text-decoration: none;
+}
+
+.btn-std {
+  border: 2px solid #a1a1a1;
+  border-radius: 25px;
+  padding: 10px 20px;
+  background: #a1a1a1;
+  cursor: pointer;
+  color: #ffffff;
+}

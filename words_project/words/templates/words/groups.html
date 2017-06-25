@@ -1,0 +1,21 @@
+{% load i18n %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>{% trans "Title" %}</title>
+</head>
+<body>
+    {% trans "Add new expression" %}
+    <form>
+        <table>
+            {% for field in expression_form %}
+            <tr>
+                <td>{{ field.label }}</td>
+                <td>{{ field }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+</body>
+</html>

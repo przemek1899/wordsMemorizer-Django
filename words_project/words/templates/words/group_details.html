@@ -1,0 +1,38 @@
+{% load i18n %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% trans "Title" %}</title>
+</head>
+<body>
+<p>{% trans "Group name" %}: <b>{{ group }}</b></p>
+<a href="/main/start_test/{{ group.id }}">{% trans "Start test" %}</a>
+<div>
+    <form action="/main/add_new_expression" method="post">
+        {% csrf_token %}
+        {{ add_word_form }}
+        <input type="submit" value="{% trans "Add" %}"/>
+    </form>
+</div>
+
+<div>
+    <table>
+        <tr>
+            <th>{% trans "Expression" %}</th>
+            <th>{% trans "Translation" %}</th>
+            <th>{% trans "Explanation" %}</th>
+            <th>{% trans "Example" %}</th>
+        </tr>
+        {% for exp in expressions %}
+        <tr>
+            <td>{{ exp.key }}</td>
+            <td>{{ exp.translation }}</td>
+            <td>{{ exp.explanation|default_if_none:"" }}</td>
+            <td>{{ exp.example|default_if_none:"" }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>

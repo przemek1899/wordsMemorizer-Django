@@ -1,0 +1,46 @@
+{% extends 'words/base/base.html' %}
+{% load i18n %}
+
+{% block content %}
+    <div class="row">
+        <div class="large-12 columns">
+            <a href="groups_view">{% trans "Go to groups." %}</a>
+            <p>{% trans "Add new group" %}</p>
+            <form method="post" action="add_new_group">
+                {% csrf_token %}
+                <table>
+                    {% for field in group_form %}
+                        <tr>
+                            <td>{{ field.label }}</td>
+                            <td>{{ field }}</td>
+                        </tr>
+
+                    {% endfor %}
+                </table>
+                <button class="btn-std" type="submit">{% trans "Add" %}</button>
+            </form>
+
+            <p>{% trans "Add new expression" %}</p>
+            <form method="post" action="add_new_expression">
+                {% csrf_token %}
+                <table>
+                    {% for field in expression_form %}
+                        <tr>
+                            <td>{{ field.label }}</td>
+                            <td>{{ field }}</td>
+                        </tr>
+
+                    {% endfor %}
+                </table>
+                <button class="btn-std" type="submit">{% trans "Add expression" %}</button>
+            </form>
+
+            <a href="/ocr/">{% trans "process_images" %}</a>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+
+        });
+    </script>
+{% endblock %}

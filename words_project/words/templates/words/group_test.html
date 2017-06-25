@@ -1,0 +1,19 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans "Title" %}</title>
+    <script type="text/javascript" src="{% static 'js/jquery/jquery-3.2.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static "js/app/examination.js" %}"></script>
+</head>
+<body>
+{% if error %}
+    {{ error }}
+{% else %}
+    <div id="expression_id">{{ expression }}</div>
+    <button type="button" id="next_word_button" onclick="get_next_word();">{% trans "Next" %}</button>
+{% endif %}
+</body>
+</html>

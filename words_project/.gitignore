@@ -1,0 +1,25 @@
+#extensions to ignore
+*.log
+*.pot
+*.pyc
+*.mo
+
+
+#files to ignore
+
+words_project/settings_local.py
+
+
+
+#ignore all migrations files without __init__.py*
+/migrations/*!*/migrations/__init__.py
+
+
+
+#directories to ignore
+
+
+.idea/
+
+.sass-cache
+/static/**/*.css*
